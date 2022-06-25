@@ -1,0 +1,23 @@
+{{#if @multipleType}}
+  <PowerSelectMultiple
+    class='flex-fill'
+    @searchField='username'
+    @selected={{@selected}}
+    @options={{this.options}}
+    @onChange={{@onChange}}
+    as |author|
+  >
+    {{author.username}}
+  </PowerSelectMultiple>
+{{else}}
+  <PowerSelect
+    class='flex-fill'
+    @searchField='username'
+    @selected={{@selected}}
+    @options={{this.options}}
+    @onChange={{@onChange}}
+    as |author|
+  >
+    {{author.username}}
+  </PowerSelect>
+{{/if}}
