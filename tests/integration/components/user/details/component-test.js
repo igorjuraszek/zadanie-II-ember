@@ -2,20 +2,14 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
-import { faker } from '@faker-js/faker';
+import { setupMirage } from 'ember-cli-mirage/test-support';
 
 module('Integration | Component | user/details', function (hooks) {
   setupRenderingTest(hooks);
+  setupMirage(hooks);
 
   test('it renders', async function (assert) {
-    faker.setLocale('pl');
-    const user = {
-      id: '1',
-      username: faker.name.firstName(),
-      email: faker.internet.email(),
-      password: faker.internet.password(),
-      photoURL: faker.image.avatar(),
-    };
+    const user = this.server.create('user');
     this.set('user', user);
     await render(hbs`<User::Details @user={{this.user}}/>`);
 
