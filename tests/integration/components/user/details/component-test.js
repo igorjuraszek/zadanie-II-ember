@@ -10,6 +10,9 @@ module('Integration | Component | user/details', function (hooks) {
 
   test('it renders', async function (assert) {
     const user = this.server.create('user');
+    const users = this.server.createList('user', 22);
+    console.log(users);
+
     this.set('user', user);
     await render(hbs`<User::Details @user={{this.user}}/>`);
 

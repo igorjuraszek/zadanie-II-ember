@@ -8,9 +8,9 @@
     </tr>
   </thead>
   <tbody>
-    {{#each @users as |user|}}
+    {{#each @users as |user index|}}
       <tr>
-        <td>{{user.id}}</td>
+        <td data-test-id={{index}}>{{user.id}}</td>
         <td><LinkTo
             @route='home.user.show'
             @model={{user}}
