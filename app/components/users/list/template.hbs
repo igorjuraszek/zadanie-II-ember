@@ -11,12 +11,13 @@
     {{#each @users as |user index|}}
       <tr>
         <td data-test-id={{index}}>{{user.id}}</td>
-        <td><LinkTo
-            @route='home.user.show'
-            @model={{user}}
-          >{{user.username}}</LinkTo></td>
-        <td>{{user.password}}</td>
-        <td>{{user.email}}</td>
+        <td data-test-username={{index}}>
+          <LinkTo @route='home.user.show' @model={{user}}>
+            {{user.username}}
+          </LinkTo>
+        </td>
+        <td data-test-password={{index}}>{{user.password}}</td>
+        <td data-test-email={{index}}>{{user.email}}</td>
       </tr>
     {{/each}}
   </tbody>
