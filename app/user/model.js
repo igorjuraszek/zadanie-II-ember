@@ -7,6 +7,10 @@ export default class UserModel extends Model {
   @attr('string') photoURL;
   @attr('boolean', { defaultValue: false }) isDeleted;
   @attr('boolean', { defaultValue: false }) isAdmin;
+
+  @attr('date') updatedAt;
+  @attr('date') createdAt;
+
   @hasMany('post') posts;
   @hasMany('like') likes;
 }

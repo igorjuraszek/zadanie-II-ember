@@ -7,6 +7,7 @@ module.exports = function (environment) {
     rootURL: '/',
     locationType: 'history',
     FASTBOOT_DISABLED: true,
+    X_HASURA_ADMIN_SECRET: process.env.X_HASURA_ADMIN_SECRET,
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
