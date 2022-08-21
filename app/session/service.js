@@ -14,7 +14,7 @@ export default class SessionService extends Service {
 
   async loginUser(login, password) {
     const users = await this.store.query('user', {
-      filter: { username: login, password: password },
+      where: { username: login, password: password },
     });
     const isUserExist = Boolean(users.length);
     if (isUserExist) {
@@ -43,7 +43,7 @@ export default class SessionService extends Service {
   }) {
     const password = '';
     const users = await this.store.query('user', {
-      filter: { email },
+      where: { email },
     });
     let user = users.firstObject;
     if (!user) {
